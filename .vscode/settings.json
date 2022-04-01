@@ -1,0 +1,9 @@
+{
+  "editor.tabSize": 5,
+  "editor.autoIndent": "advanced",
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "prettier.useTabs": true,
+  "editor.stickyTabStops": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true
+}

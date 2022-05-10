@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/codiopath/static/css/main.36a62240.css",
+    "main.js": "/codiopath/static/js/main.f1645b9e.js",
+    "index.html": "/codiopath/index.html",
+    "main.36a62240.css.map": "/codiopath/static/css/main.36a62240.css.map",
+    "main.f1645b9e.js.map": "/codiopath/static/js/main.f1645b9e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36a62240.css",
+    "static/js/main.f1645b9e.js"
+  ]
+}

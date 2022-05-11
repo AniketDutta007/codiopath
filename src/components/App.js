@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import { getPosts } from '../api';
+import { useAuth } from '../hooks';
 import { Home, Login } from '../pages';
 import { Loader, Navbar } from './';
 
@@ -16,24 +15,9 @@ const Page404 = () => {
 };
 
 function App() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const auth = useAuth();
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await getPosts();
-
-      if (response.success) {
-        setPosts(response.data.posts);
-      }
-
-      setLoading(false);
-    };
-
-    fetchPosts();
-  }, []);
-
-  if (loading) {
+  if (auth.loading) {
     return <Loader />;
   }
 
@@ -42,9 +26,9 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact index element={<Home posts={posts} />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/user/user_id" element={<UserInfo />} />
+          <Route exact index element={<Home />} />
+          {/* <Route exact path="/about" element={<About />} /> */}
+          {/* <Route exact path="/user/user_id" element={<UserInfo />} /> */}
           <Route exact path="/login" element={<Login />} />
           <Route path="*" element={<Page404 />} />
         </Routes>

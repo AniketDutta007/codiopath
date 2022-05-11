@@ -44,6 +44,18 @@ export const getPosts = (page = 1, limit = 5) => {
   });
 };
 
+export const signup = (email, name, password, confirm_password) => {
+  return customFetch(API_URLS.signup(), {
+    method: 'POST',
+    body: {
+      email,
+      name,
+      password,
+      confirm_password,
+    },
+  });
+};
+
 export const login = (email, password) => {
   return customFetch(API_URLS.login(), {
     method: 'POST',

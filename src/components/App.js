@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAuth } from '../hooks';
-import { Home, Login } from '../pages';
+import { Home, Signup, Login } from '../pages';
 import { Loader, Navbar } from './';
 
 const About = () => {
@@ -29,6 +29,7 @@ function App() {
           <Route exact index element={<Home />} />
           {/* <Route exact path="/about" element={<About />} /> */}
           {/* <Route exact path="/user/user_id" element={<UserInfo />} /> */}
+          <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
           <Route path="*" element={<Page404 />} />
         </Routes>

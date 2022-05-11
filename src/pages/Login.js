@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { useToasts } from 'react-toast-notifications';
 
 import styles from '../styles/login.module.css';
-import { login } from '../api';
+import { useAuth } from '../hooks';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
   const { addToast } = useToasts();
+  const auth = useAuth();
+  console.log(auth);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoggingIn(true);
@@ -18,7 +21,7 @@ const Login = () => {
         appearance: 'error',
       });
     }
-    const response = await login(email, password);
+    const response = await auth.login(email, password);
     if (response.success) {
       setLoggingIn(false);
       return addToast('Successfully logged in', {
